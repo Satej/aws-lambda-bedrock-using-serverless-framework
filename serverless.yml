@@ -1,0 +1,25 @@
+service: llm-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: us-west-2
+  stage: dev
+  timeout: 900
+  runtime: python3.11
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - "bedrock:InvokeModel"
+          Resource:
+            - "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-text-lite-v1"
+
+functions:
+  api:
+    handler: handler.api
+    url: true
+
+plugins:
+  - serverless-python-requirements

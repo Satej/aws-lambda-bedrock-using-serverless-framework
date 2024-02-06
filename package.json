@@ -1,0 +1,7 @@
+{
+  "name": "llm-api",
+  "version": "1.0.0",
+  "devDependencies": {
+    "serverless-python-requirements": "^6.0.0"
+  }
+}
